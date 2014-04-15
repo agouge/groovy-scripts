@@ -3,14 +3,13 @@ import groovy.swing.SwingBuilder;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-ds = mc.getDataManager().getDataSource()
-sql = groovy.sql.Sql.newInstance(ds)
+sql = groovy.sql.Sql.newInstance(grv_ds)
 
 def sb = new SwingBuilder()
 dialog = sb.panel() {
     gridLayout(columns: 2, rows: 0)    
     label("Input table")
-    comboBox(id:"1", items:mc.getLayers().collect { it.getName() })
+    comboBox(id:"1", items:grv_mc.getLayers().collect { it.getName() })
     label("New column name")
     textField(id: "2")
     label("Buffer size")
